@@ -1620,13 +1620,23 @@ class dark(linux):
         )
 
 class pxfmini(linux):
-    toolchain = 'arm-linux-gnueabihf'
+    toolchain = 'riscv64-linux-gnu'
 
     def configure_env(self, cfg, env):
         super(pxfmini, self).configure_env(cfg, env)
 
         env.DEFINES.update(
             CONFIG_HAL_BOARD_SUBTYPE = 'HAL_BOARD_SUBTYPE_LINUX_PXFMINI',
+        )
+
+class duo(linux):
+    toolchain = 'arm-linux-gnueabihf'
+
+    def configure_env(self, cfg, env):
+        super(duo, self).configure_env(cfg, env)
+
+        env.DEFINES.update(
+            CONFIG_HAL_BOARD_SUBTYPE = 'HAL_BOARD_SUBTYPE_LINUX_DUO',
         )
 
 class aero(linux):
